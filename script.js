@@ -12,12 +12,12 @@ const grid = [
     ['class', 'outside', 'dining', 'dorm', 'class', 'dining', 'outside', 'class', 'dorm', 'dorm']
 ];
 
-// Logistic regression coefficients (tuned for realistic probabilities)
-const beta0 = -5;    // Baseline log-odds
-const beta1 = 0.5;   // Dorm (high risk)
-const beta2 = 0.3;   // Classroom (moderate risk)
-const beta3 = 0.4;   // Dining hall (higher risk)
-const beta4 = 0.1;   // Outside (low risk)
+// Logistic regression coefficients (adjusted for visibility during testing)
+const beta0 = -2;    // Baseline log-odds (increased from -5 to make flu more likely)
+const beta1 = 1.0;   // Dorm (high risk)
+const beta2 = 0.8;   // Classroom (moderate risk)
+const beta3 = 0.9;   // Dining hall (higher risk)
+const beta4 = 0.2;   // Outside (low risk)
 
 // Track history of locations visited
 let history = [];
@@ -64,9 +64,9 @@ function simulateFluRisk() {
         outside: lastK.filter(loc => loc === 'outside').length
     };
     const P = computeP(totals); // Probability over the k-hour period
-    const p_hour = k > 0 ? 1 - Math.pow(1 - P, 1 / k) : 0; // Per-hour probability
+    console.log('P:', P, 'Totals:', totals); // Debug log to check values
     const r = Math.random();
-    if (r < p_hour) {
+    if (r < P) {
         alert('YOU GOT THE STANFORD FLU');
         resetSimulation();
     } else {
