@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #8C1515; /* Stanford cardinal red */
+    text-align: center;
+}
+
+#campus-grid {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+#campus-grid td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+#campus-grid td:hover {
+    opacity: 0.8;
+}
+
+.dorm { background-color: #ff5555; }
+.class { background-color: #5555ff; }
+.dining { background-color: #55ff55; }
+.outside { background-color: #ffff55; }
+
+.dorm-legend { color: #ff5555; }
+.class-legend { color: #5555ff; }
+.dining-legend { color: #55ff55; }
+.outside-legend { color: #ffff55; }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.time-display, .probability-display {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #8C1515;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #6B0F0F;
+}
