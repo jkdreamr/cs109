@@ -1,103 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flu Risk Simulator</title>
+    <title>Stanford Flu Risk Simulator</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Center all content within a container */
-        .container {
-            max-width: 800px; /* Constrain the width */
-            margin: 0 auto;   /* Center horizontally */
-            padding: 20px;    /* Add internal spacing */
-            text-align: center; /* Center text elements */
-        }
-
-        h1 {
-            color: #8C1515; /* Maroon color from screenshot */
-            font-size: 2.5em;
-            margin-bottom: 10px; /* Space below title */
-        }
-
-        p {
-            font-size: 1.1em;
-            margin-bottom: 20px; /* Space below paragraphs */
-        }
-
-        /* Legend styling */
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-
-        li {
-            display: inline-block; /* Display items horizontally */
-            margin-right: 15px;    /* Space between items */
-        }
-
-        .dorm-legend { color: #ff5555; }
-        .class-legend { color: #5555ff; }
-        .dining-legend { color: #55ff55; }
-        .outside-legend { color: #ffff55; }
-
-        /* Grid styling */
-        #campus-grid {
-            border-collapse: collapse;
-            margin: 0 auto; /* Center the grid within the container */
-        }
-
-        #campus-grid td {
-            width: 30px;  /* Fixed cell size */
-            height: 30px;
-            border: 1px solid #333; /* Cell borders */
-            cursor: pointer;
-        }
-
-        /* Cell colors from screenshot */
-        .dorm { background-color: #ff5555; }     /* Red - high risk */
-        .class { background-color: #5555ff; }    /* Blue - moderate risk */
-        .dining { background-color: #55ff55; }   /* Green - higher risk */
-        .outside { background-color: #ffff55; }  /* Yellow - low risk */
-
-        /* Time and probability display */
-        .time-display, .probability-display {
-            margin: 20px 0; /* Vertical spacing */
-        }
+        td.dorm { background-color: #ff9999; }
+        td.class { background-color: #99ccff; }
+        td.dining { background-color: #ffcc99; }
+        td.outside { background-color: #99ff99; }
+        td { width: 40px; height: 40px; border: 1px solid #ccc; }
+        table { border-collapse: collapse; margin-bottom: 20px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Flu Risk Simulator</h1>
-        <p>Welcome to Stanford's Flu Risk Simulator! Click on the grid cells to spend an hour in that location. Watch how your flu risk changes based on where you hang out, calculated with logistic regression.</p>
-        <p>Cell types:</p>
-        <ul>
-            <li><span class="dorm-legend">Dorm</span> (red - high risk)</li>
-            <li><span class="class-legend">Classroom</span> (blue - moderate risk)</li>
-            <li><span class="dining-legend">Dining Hall</span> (green - higher risk)</li>
-            <li><span class="outside-legend">Outside</span> (yellow - low risk)</li>
-        </ul>
-        <table id="campus-grid"><tbody></tbody></table>
-        <div class="time-display">
-            <p>Time Spent:</p>
-            <ul>
-                <li>Dorm: <span id="total-dorm">0</span> hours</li>
-                <li>Classroom: <span id="total-class">0</span> hours</li>
-                <li>Dining Hall: <span id="total-dining">0</span> hours</li>
-                <li>Outside: <span id="total-outside">0</span> hours</li>
-            </ul>
-        </div>
-        <div class="probability-display">
-            <p>Your Flu Risk: <span id="probability">0.00</span>%</p>
-        </div>
+    <h1>Stanford Flu Risk Simulator</h1>
+    <table id="campus-grid"><tbody></tbody></table>
+    <div>
+        <p>Dorm hours: <span id="total-dorm">0</span></p>
+        <p>Class hours: <span id="total-class">0</span></p>
+        <p>Dining hours: <span id="total-dining">0</span></p>
+        <p>Outside hours: <span id="total-outside">0</span></p>
+        <p>Flu Risk Probability: <span id="probability">0.00</span>%</p>
     </div>
+    <button id="reset">Reset Simulation</button>
     <script src="script.js"></script>
 </body>
 </html>
